@@ -5,6 +5,5 @@ export interface IAddress {
     cidade: string;
     estado: string;
     pais: string;
-
 }
 
