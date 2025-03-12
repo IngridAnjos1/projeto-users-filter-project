@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from './interfaces/user/user.interface';
+import { UsersList } from './data/user-list';
 
 
 @Component({
@@ -7,9 +8,16 @@ import { IUser } from './interfaces/user/user.interface';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  usersList: IUser[] = [];
   userSelected: IUser = {} as IUser;
   showUserDetails: boolean = false;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.usersList = UsersList
+    }, 1000);
+  }
 
   onUserSelected(user: IUser) {
     this.userSelected = user;
